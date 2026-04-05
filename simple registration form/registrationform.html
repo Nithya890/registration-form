@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    .glass {
+
+      
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .fade {
+      
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center">
+
+  <!-- LOGIN PAGE -->
+  <div id="loginPage" class="glass p-8 rounded-2xl w-96 shadow-2xl fade">
+
+    <h2 class="text-2xl text-white text-center mb-6 font-bold">Login</h2>
+
+    <input type="text" placeholder="Username"
+      class="w-full mb-4 p-2 rounded-lg outline-none">
+
+    <input type="password" placeholder="Password"
+      class="w-full mb-4 p-2 rounded-lg outline-none">
+
+    <button onclick="openRegister()"
+      class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition">
+      Login
+    </button>
+
+    <p class="text-center text-white mt-4">
+      New user?
+      <span onclick="openRegister()" class="text-yellow-300 cursor-pointer">Register here</span>
+    </p>
+
+  </div>
+
+  <!-- REGISTER PAGE -->
+  <div id="registerPage" class="glass p-8 rounded-2xl w-96 shadow-2xl hidden fade">
+
+    <h2 class="text-2xl text-white text-center mb-6 font-bold">Register</h2>
+
+    <input type="text" placeholder="Name"
+      class="w-full mb-4 p-2 rounded-lg outline-none">
+
+    <input type="email" placeholder="Email"
+      class="w-full mb-4 p-2 rounded-lg outline-none">
+
+    <input type="password" placeholder="Password"
+      class="w-full mb-4 p-2 rounded-lg outline-none">
+
+    <button onclick="backToLogin()"
+      class="w-full bg-pink-500 text-white p-2 rounded-lg hover:bg-pink-600 transition">
+      Submit
+    </button>
+
+    <p class="text-center text-white mt-4">
+      Already have account?
+      <span onclick="backToLogin()" class="text-green-300 cursor-pointer">Login</span>
+    </p>
+
+  </div>
+
+  <!-- SOUND -->
+  <audio id="sound" src="https://www.soundjay.com/nature/birds-1.mp3"></audio>
+
+  <script>
+    const loginPage = document.getElementById("loginPage");
+    const registerPage = document.getElementById("registerPage");
+    const sound = document.getElementById("sound");
+
+    function openRegister() {
+      loginPage.classList.add("hidden");
+      registerPage.classList.remove("hidden");
+      sound.play();
+    }
+
+    function backToLogin() {
+      registerPage.classList.add("hidden");
+      loginPage.classList.remove("hidden");
+      sound.play();
+    }
+  </script>
+
+</body>
+</html>
